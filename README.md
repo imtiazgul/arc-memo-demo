@@ -1,36 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Arc Transaction Memo Demo
 
-## Getting Started
+A simple Next.js application demonstrating how to send USDC transactions with **Transaction Memo** support on the **Arc Testnet** using **Ethers.js** and **MetaMask**.
 
-First, run the development server:
+This project also demonstrates how to verify memo events emitted by the Arc Memo contract.
+
+---
+
+## ✨ Features
+
+* Connect MetaMask
+* Detect Arc Testnet network
+* Send USDC transfer with Transaction Memo
+* Generate Memo ID
+* Encode memo bytes
+* Verify BeforeMemo event
+* Verify Memo event
+* Verify:
+
+  * Sender
+  * Target
+  * CallDataHash
+  * Memo ID
+  * Memo
+* Query Memo event using Memo ID
+* Display transaction details
+* Display verification results
+* Link to Arc Explorer
+
+---
+
+## 🛠 Tech Stack
+
+* Next.js
+* React
+* TypeScript
+* Ethers.js v6
+* MetaMask
+* Arc Testnet
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/imtiazgul/arc-memo-demo.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Network
 
-To learn more about Next.js, take a look at the following resources:
+This demo is built for:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Arc Testnet**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Chain ID:
 
-## Deploy on Vercel
+```
+5042002
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ How it Works
+
+The application:
+
+1. Connects MetaMask.
+2. Verifies the user is on Arc Testnet.
+3. Creates ERC20 transfer calldata.
+4. Computes the CallDataHash.
+5. Generates a Memo ID.
+6. Encodes the memo text.
+7. Calls the Arc Memo contract.
+8. Waits for transaction confirmation.
+9. Parses emitted events.
+10. Verifies all event fields.
+11. Queries the Memo event by Memo ID.
+12. Displays the verification results.
+
+---
+
+## ✅ Verification
+
+The application automatically checks:
+
+* Sender
+* Target
+* CallDataHash
+* Memo ID
+* Memo
+
+Every check returns either:
+
+```
+PASS ✅
+```
+
+or
+
+```
+FAIL ❌
+```
+
+---
+
+## 📄 Example Output
+
+```
+Transaction Successful
+
+Transaction Hash:
+0x...
+
+Block:
+49031802
+
+BeforeMemo Index:
+19723
+
+Sender:
+0x...
+
+Target:
+0x...
+
+Memo:
+order=2026-0002
+
+Verification
+
+Sender ✅ PASS
+Target ✅ PASS
+CallDataHash ✅ PASS
+MemoId ✅ PASS
+Memo ✅ PASS
+```
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+ └── page.tsx
+
+memo-abi.json
+
+package.json
+```
+
+---
+
+## 🎯 Future Improvements
+
+* Copy Transaction Hash button
+* Copy Memo ID button
+* Dark / Light mode
+* Better UI with Tailwind CSS
+* Toast notifications
+* Transaction history
+* Mobile responsive layout
+* Support multiple ERC20 tokens
+
+---
+
+## 👨‍💻 Author
+
+**Imtiaz Gul**
+
+GitHub:
+
+https://github.com/imtiazgul
+
+---
+
+## 📜 License
+
+This project is released under the MIT License.
